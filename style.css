@@ -1,0 +1,483 @@
+/* Custom CSS */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8fafc; /* Diubah menjadi warna bersih, terang */
+    overflow-x: hidden; /* Mencegah scroll horizontal */
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #FFD700 0%, #001f3f 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #FFD700;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.mobile-menu {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Gaya untuk navbar saat digulir */
+.navbar-scrolled {
+    background-color: rgba(255, 255, 255, 0.95); /* Latar belakang putih semi-transparan */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Bayangan */
+    backdrop-filter: blur(8px); /* Efek blur untuk latar belakang */
+}
+
+/* Gaya untuk Preloader */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #001f3f; /* Warna latar belakang preloader */
+    display: flex;
+    flex-direction: column; /* Mengatur item dalam kolom */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+    opacity: 1;
+    visibility: visible;
+}
+
+#preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #FFD700; /* Warna spinner */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Custom CSS untuk Swiper Navigation Buttons */
+.swiper-button-prev, .swiper-button-next {
+    position: static !important; /* Override Swiper's absolute positioning */
+    transform: none !important; /* Override Swiper's transform */
+    margin: 0 !important; /* Remove any default margins */
+    width: 40px !important; /* Set a fixed width */
+    height: 40px !important; /* Set a fixed height */
+    background-color: #001f3f !important; /* Navy color */
+    color: #fff !important; /* White icon color */
+    border-radius: 9999px !important; /* Full rounded */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: background-color 0.3s ease, transform 0.3s ease !important;
+}
+
+.swiper-button-prev:hover, .swiper-button-next:hover {
+    background-color: #1e3a8a !important; /* Darker blue on hover */
+    transform: scale(1.05);
+}
+
+.swiper-button-prev::after, .swiper-button-next::after {
+    font-size: 1rem !important; /* Adjust icon size */
+    font-family: 'Font Awesome 5 Free' !important; /* Use Font Awesome */
+    font-weight: 900 !important; /* Solid icon weight */
+}
+
+.swiper-button-prev::after {
+    content: '\f053' !important; /* Chevron left icon */
+}
+
+.swiper-button-next::after {
+    content: '\f054' !important; /* Chevron right icon */
+}
+
+/* Custom styles for SweetAlert2 popup */
+.swal2-popup {
+    border-radius: 12px !important;
+    overflow: hidden !important;
+}
+
+.swal2-title {
+    color: #001f3f !important; /* Navy color for title */
+    font-weight: bold !important;
+    padding-bottom: 0.5rem !important;
+    border-bottom: 2px solid #FFD700 !important; /* Gold line under title */
+    margin-bottom: 1rem !important;
+}
+
+.swal2-image {
+    max-width: 100% !important;
+    height: auto !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+.swal2-close {
+    color: #001f3f !important;
+    font-size: 2rem !important;
+    top: 0.8rem !important;
+    right: 0.8rem !important;
+    transition: color 0.3s ease !important;
+}
+
+.swal2-close:hover {
+    color: #FFD700 !important;
+}
+
+/* Responsive adjustments for SweetAlert2 */
+@media (max-width: 768px) {
+    .swal2-popup {
+        width: 90% !important; /* Sedikit lebih kecil dari 95% */
+        margin: 10px !important; /* Add some margin */
+    }
+    .swal2-title {
+        font-size: 1.5rem !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .swal2-popup {
+        /* Adjusted width for desktop to be smaller, matching the image */
+        width: 45% !important; /* Lebih kecil dari 50% */
+        max-width: 600px !important; /* Adjusted max-width */
+    }
+}
+
+.gold-gradient-text {
+    background: linear-gradient(90deg, #FFD700, #FFA500);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+@keyframes float-slow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.animate-float-slow {
+    animation: float-slow 4s ease-in-out infinite;
+}
+
+/* Custom CSS */
+.gold-gradient-text {
+    background: linear-gradient(90deg, #D4AF37 0%, #F9D423 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.gold-border-gradient {
+    border-image: linear-gradient(90deg, #D4AF37 0%, #F9D423 100%);
+    border-image-slice: 1;
+}
+
+.navy-gradient-bg {
+    background: linear-gradient(to bottom right, #1A202C, #2D3748); /* Darker shades for a "navy" feel */
+}
+
+.section-title:after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 3px;
+    bottom: -10px;
+    left: 25%;
+    background: linear-gradient(90deg, #D4AF37 0%, #F9D423 100%);
+}
+
+.card-hover:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.skill-bar {
+    height: 8px;
+    border-radius: 4px;
+}
+
+/* Swiper navigation buttons with refined styling */
+.swiper-button-prev,
+.swiper-button-next {
+    position: static !important; /* Menggunakan static agar bisa diatur dengan flexbox */
+    transform: none !important; /* Menghapus transform default Swiper */
+    margin: 0 !important; /* Menghapus margin default */
+    width: 40px !important; /* Ukuran tombol */
+    height: 40px !important;
+    background-color: var(--navy) !important; /* Warna latar belakang */
+    color: #fff !important; /* Warna ikon */
+    border-radius: 9999px !important; /* Bentuk lingkaran penuh */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: background-color 0.3s ease, transform 0.3s ease !important;
+    z-index: 10;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    background-color: #1e3a8a !important; /* Warna hover */
+    transform: scale(1.05); /* Efek scaling */
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    font-size: 1rem !important; /* Ukuran ikon */
+    font-family: 'Font Awesome 5 Free' !important; /* Menggunakan Font Awesome */
+    font-weight: 900 !important; /* Ketebalan ikon */
+}
+
+.swiper-button-prev::after {
+    content: '\f053' !important; /* Ikon chevron kiri */
+}
+
+.swiper-button-next::after {
+    content: '\f054' !important; /* Ikon chevron kanan */
+}
+
+/* Styles for the skill card */
+.skill-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background-color: #ffffff;
+    border-radius: 0.75rem; /* rounded-xl */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; /* Ensure cards take full height in swiper slide */
+}
+
+.skill-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+}
+
+.skill-card i {
+    font-size: 3rem; /* text-4xl */
+    margin-bottom: 0.75rem; /* mb-3 */
+}
+
+.skill-card span {
+    font-weight: 500; /* font-medium */
+    color: #4a5568; /* text-gray-700 */
+}
+
+/* Custom CSS for Modern Circular Skill Cards */
+.skill-card-modern {
+    /* Flexbox for centering content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    /* Define the circular shape */
+    width: 120px; /* Adjust size as needed */
+    height: 120px; /* Must match width for a perfect circle */
+    border-radius: 50%; /* Makes the element perfectly circular */
+
+    /* Background and initial shadow */
+    background-color: #ffffff; /* White background */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.05); /* Soft, modern shadow */
+
+    /* Smooth transitions for hover effects */
+    transition: all 0.3s ease-in-out; /* Apply transition to all changing properties */
+
+    /* Padding for internal content */
+    padding: 1rem; /* Adjust padding if necessary */
+
+    /* Ensure text and icon are readable */
+    text-align: center;
+}
+
+/* Hover effects for the modern skill card */
+.skill-card-modern:hover {
+    transform: translateY(-5px) scale(1.05); /* Lift slightly and scale up */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15), 0 6px 12px rgba(0, 0, 0, 0.1); /* Enhanced shadow on hover */
+    background-color: #f0f4f8; /* Very subtle background change on hover */
+}
+
+/* Styling for the icon inside the card */
+.skill-card-modern i {
+    font-size: 2.8rem; /* Larger icon for prominence */
+    margin-bottom: 0.5rem; /* Space between icon and text */
+    line-height: 1; /* Ensures icon sits well vertically */
+}
+
+/* Styling for the text inside the card */
+.skill-card-modern span {
+    font-size: 0.9rem; /* Clear, readable text size */
+    font-weight: 600; /* Semi-bold text */
+    color: #4a5568; /* Darker gray for better contrast */
+    white-space: nowrap; /* Prevents text from wrapping if it's too long */
+    overflow: hidden; /* Hides overflow if text is too long */
+    text-overflow: ellipsis; /* Adds ellipsis if text is too long */
+}
+
+/* Swiper navigation button styles (adjust if needed, or define in your Swiper JS init) */
+.swiper-button-prev-skills,
+.swiper-button-next-skills {
+    color: #f59e0b !important; /* Yellow color for navigation arrows */
+    font-size: 1.8rem !important; /* Larger arrows */
+}
+
+.swiper-button-prev-skills:after,
+.swiper-button-next-skills:after {
+    font-size: 1.8rem !important; /* Ensure pseudo-element size matches */
+}
+
+/* Define color variables for consistency with a refined palette */
+:root {
+    --navy: #001f3f; /* Deep navy for elegance */
+    --gold: #f4c430; /* Softer gold for a modern look */
+    --light-gray: #f8f9fa; /* Subtle background for cards */
+    --shadow: rgba(0, 31, 63, 0.15); /* Soft shadow for depth */
+}
+
+/* Base styles for certificate card with refined look */
+.certificate-card {
+    border-top: 4px solid var(--gold); /* Gold accent at the top */
+    background: var(--light-gray); /* Light background for a cleaner look */
+    position: relative; /* For absolute positioning of badge */
+    transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+    overflow: hidden; /* Ensures badge doesn't overflow card */
+    border-radius: 12px; /* Slightly larger radius for modern feel */
+}
+
+/* Refined badge styles for a less prominent, integrated look */
+.certificate-badge {
+    position: absolute;
+    bottom: -10px; /* Adjusted to sit slightly lower for balance */
+    right: -10px; /* Positioned to peek into the card subtly */
+    width: 70px; /* Smaller badge size for less prominence */
+    height: 70px; /* Circular badge */
+    background: linear-gradient(135deg, var(--navy) 0%, #003087 100%); /* Gradient for depth */
+    border-radius: 50%; /* Perfect circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--gold); /* Thinner gold border */
+    box-shadow: -4px 4px 10px var(--shadow); /* Softer shadow */
+    z-index: 10; /* Above other content */
+    transform: rotate(15deg); /* Slight tilt for dynamic effect */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0.9; /* Slightly translucent for subtlety */
+}
+
+/* Badge icon styling */
+.certificate-badge i {
+    font-size: 2.5rem; /* Smaller icon for balance */
+    color: var(--gold); /* Gold icon */
+    transform: rotate(-15deg); /* Counter-rotate to align icon */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effects for certificate card */
+.certificate-card:hover {
+    box-shadow: 0 10px 24px var(--shadow); /* Slightly softer shadow on hover */
+    transform: translateY(-6px); /* Subtle lift effect */
+    background: #ffffff; /* Brighten background on hover */
+}
+
+/* Hover effects for badge */
+.certificate-card:hover .certificate-badge {
+    transform: rotate(0deg) scale(1.05); /* Straighten and slightly enlarge */
+    box-shadow: -6px 6px 12px var(--shadow); /* Enhanced shadow on hover */
+    opacity: 1; /* Full opacity on hover */
+}
+
+/* Hover effects for badge icon */
+.certificate-card:hover .certificate-badge i {
+    transform: rotate(0deg); /* Straighten icon */
+}
+
+/* Swiper navigation buttons with refined styling */
+.swiper-button-prev,
+.swiper-button-next {
+    color: var(--navy);
+    background: rgba(244, 196, 48, 0.15); /* Lighter gold background */
+    border-radius: 50%;
+    width: 40px; /* Slightly smaller buttons */
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid var(--gold); /* Thin gold border for elegance */
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    background: var(--gold); /* Solid gold on hover */
+    color: #ffffff; /* White icon for contrast */
+    transform: scale(1.1); /* Subtle scale effect */
+    box-shadow: 0 4px 12px var(--shadow); /* Soft shadow on hover */
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+    font-size: 1.2rem !important; /* Slightly smaller arrows */
+}
+
+/* Pagination fraction styling */
+#swiper-pagination-fraction {
+    color: var(--navy);
+    font-weight: 600; /* Bolder for clarity */
+    letter-spacing: 0.05em; /* Slight spacing for readability */
+}
+
+/* Image styling for certificate thumbnails */
+.certificate-card img {
+    transition: transform 0.3s ease-in-out; /* Smooth zoom on hover */
+}
+
+.certificate-card:hover img {
+    transform: scale(1.05); /* Subtle zoom effect for images */
+}
+
+/* Text refinements for better readability */
+.certificate-card h3 {
+    color: var(--navy);
+    font-weight: 700; /* Bolder for emphasis */
+    letter-spacing: -0.02em; /* Tighten spacing for modern look */
+}
+
+.certificate-card p {
+    color: #4b5e7a; /* Softer gray for secondary text */
+}
+
+.certificate-card button {
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth button hover */
+}
+
+.certificate-card button:hover {
+    color: #d4a017; /* Darker gold on hover */
+    transform: translateX(4px); /* Slight shift for interactivity */
+}

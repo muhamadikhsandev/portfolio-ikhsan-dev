@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhamad Ikhsan | Junior Fullstack Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"/>
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        // Konfigurasi Tailwind CSS
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#001f3f',
+                        gold: '#FFD700',
+                        darkgray: '#333333',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-darkgray">
+    <div id="preloader">
+        <div class="spinner"></div>
+        <p class="text-white mt-4 text-lg">Memuat...</p>
+    </div>
+
+    <nav id="navbar" class="fixed w-full bg-white shadow-lg z-50 transition-all duration-300 ease-in-out">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="#" class="text-3xl font-extrabold flex items-center text-navy tracking-wider">
+                        <span class="text-gold mr-2 drop-shadow-md"><i class="fas fa-code"></i></span>
+                        <span class="bg-gradient-to-r from-gold to-navy bg-clip-text text-transparent drop-shadow-md">
+                            MI
+                        </span>
+                    </a>
+                </div>
+
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#home" class="group relative text-darkgray hover:text-gold transition nav-link">
+                        Beranda
+                        <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-gold transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#about" class="group relative text-darkgray hover:text-gold transition nav-link">
+                        Tentang
+                        <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-gold transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#skills" class="group relative text-darkgray hover:text-gold transition nav-link">
+                        Keahlian
+                        <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-gold transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#projects" class="group relative text-darkgray hover:text-gold transition nav-link">
+                        Proyek
+                        <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-gold transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#certificates" class="group relative text-darkgray hover:text-gold transition nav-link">
+                        Sertifikat
+                        <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-gold transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#contact" class="group relative text-darkgray hover:text-gold transition nav-link">
+                        Kontak
+                        <span class="absolute left-0 -bottom-1 w-0 h-[2px] bg-gold transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-darkgray focus:outline-none">
+                        <i id="menu-icon" class="fas fa-bars text-2xl transition duration-300"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md px-4 py-4 transition-all duration-300 ease-in-out">
+            <div class="flex flex-col space-y-3">
+                <a href="#home" class="text-darkgray hover:text-gold transition">Beranda</a>
+                <a href="#about" class="text-darkgray hover:text-gold transition">Tentang</a>
+                <a href="#skills" class="text-darkgray hover:text-gold transition">Keahlian</a>
+                <a href="#projects" class="text-darkgray hover:text-gold transition">Proyek</a>
+                <a href="#certificates" class="text-darkgray hover:text-gold transition">Sertifikat</a>
+                <a href="#contact" class="text-darkgray hover:text-gold transition">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="min-h-screen flex items-center justify-center pt-16 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] relative overflow-hidden" data-aos="fade-up">
+        <div class="absolute top-0 left-0 w-[500px] h-[500px] bg-yellow-400 opacity-10 rounded-full blur-[150px] -z-10 animate-pulse"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 text-center md:text-left" data-aos="fade-right" data-aos-delay="200">
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4">
+                        Muhamad <span class="gold-gradient-text">Ikhsan</span>
+                    </h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold text-white mb-6">Fullstack Developer</h2>
+                    <p class="text-lg text-gray-300 mb-8 max-w-xl">Membuat solusi elegan untuk masalah kompleks dengan kode yang bersih, efisien, dan teknologi modern.</p>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="#contact" class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-yellow-400/50 hover:shadow-xl transition-all duration-300">Rekrut Saya</a>
+                        <a href="#projects" class="border-2 border-yellow-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500 hover:text-white transition-all duration-300">Lihat Karya</a>
+                    </div>
+                </div>
+
+                <div class="md:w-1/2 flex justify-center" data-aos="fade-left" data-aos-delay="400">
+                    <div class="relative group animate-float-slow">
+                        <div class="w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center shadow-2xl shadow-yellow-400/30">
+                            <img src="foto/home/home.webp" alt="Muhamad Ikhsan" class="w-60 h-60 md:w-72 md:h-72 rounded-full object-cover border-4 border-white transition-transform duration-500 group-hover:rotate-3" loading="eager">
+                        </div>
+                        <div class="absolute -bottom-5 -right-5 bg-white p-4 rounded-full shadow-xl">
+                            <div class="bg-yellow-500 w-12 h-12 rounded-full flex items-center justify-center">
+                                <i class="fas fa-code text-white text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-gradient-to-br from-white to-gray-50 relative overflow-hidden"
+        style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23061a47\' fill-opacity=\'0.03\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zm0 60v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM0 34v-4h-2v4H-4v2h4v4h2v-4h4v-2H0zm0-30V0h-2v4H-4v2h4v4h2V6h4V4h-4zm0 60v-4h-2v4H-4v2h4v4h2v-4h4v-2H0z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E'); background-repeat: repeat; background-size: 60px 60px;"
+        data-aos="fade-up">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 relative z-10">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-16 text-navy" data-aos="fade-down" data-aos-delay="100">
+                Tentang
+                <span class="bg-gradient-to-r from-gold to-yellow-600 bg-clip-text text-transparent">Saya</span>
+            </h2>
+
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <div class="md:w-1/3 flex justify-center" data-aos="fade-right" data-aos-delay="300">
+                    <div class="relative w-72 h-72 rounded-3xl overflow-hidden shadow-2xl border-4 border-gold transform hover:scale-105 transition-all duration-700 ease-in-out group">
+                        <img src="foto/about/about.webp" alt="Muhamad Ikhsan" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out" loading="eager" />
+                        <div class="absolute inset-0 bg-navy/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl flex items-center justify-center">
+                            <p class="text-white text-lg font-semibold transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">Muhamad Ikhsan</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:w-2/3" data-aos="fade-left" data-aos-delay="500">
+                    <h3 class="text-3xl font-bold mb-6 text-navy border-b-2 border-gold pb-2">
+                        Siapa Saya?
+                    </h3>
+                    <p class="text-lg text-gray-700 mb-8 leading-relaxed">
+                        Saya <span class="font-bold text-navy">Muhamad Ikhsan</span>, seorang individu yang antusias dalam menjelajahi dunia teknologi, khususnya dalam <strong>pengembangan perangkat lunak</strong>. Saya menemukan kepuasan besar dalam membangun sesuatu dari ide awal: mulai dari merancang <strong>antarmuka intuitif</strong>, menyusun <strong>logika fungsional</strong>, hingga menjadikannya <strong>solusi nyata</strong> yang berdampak. Bagi saya, kode bukan sekadar barisan perintah, melainkan sebuah bentuk <strong>seni digital</strong> yang berdaya untuk memecahkan masalah.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                        <div class="flex items-start gap-5 p-5 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group" data-aos="fade-up" data-aos-delay="600">
+                            <div class="bg-gold p-3 rounded-full flex-shrink-0 transition duration-300 group-hover:scale-110 group-hover:shadow-md">
+                                <i class="fas fa-heart text-navy text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-navy text-xl mb-1">Apa yang Saya Cintai</h4>
+                                <p class="text-gray-700">
+                                    Membangun aplikasi inovatif, membantu orang melalui solusi teknologi, dan mewujudkan ide-ide kompleks menjadi kenyataan digital.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-5 p-5 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group" data-aos="fade-up" data-aos-delay="700">
+                            <div class="bg-gold p-3 rounded-full flex-shrink-0 transition duration-300 group-hover:scale-110 group-hover:shadow-md">
+                                <i class="fas fa-brain text-navy text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-navy text-xl mb-1">Kekuatan Saya</h4>
+                                <p class="text-gray-700">
+                                    Kreativitas dalam memecahkan masalah, ketelitian dalam detail, ketangguhan menghadapi tantangan teknis, dan semangat pantang menyerah.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-5 p-5 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group" data-aos="fade-up" data-aos-delay="800">
+                            <div class="bg-gold p-3 rounded-full flex-shrink-0 transition duration-300 group-hover:scale-110 group-hover:shadow-md">
+                                <i class="fas fa-mountain text-navy text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-navy text-xl mb-1">Mimpi Saya</h4>
+                                <p class="text-gray-700">
+                                    Menjadi seorang developer yang memberikan dampak positif, membangun startup yang sukses, dan senantiasa menjaga kerendahan hati.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-5 p-5 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group" data-aos="fade-up" data-aos-delay="900">
+                            <div class="bg-gold p-3 rounded-full flex-shrink-0 transition duration-300 group-hover:scale-110 group-hover:shadow-md">
+                                <i class="fas fa-rocket text-navy text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-navy text-xl mb-1">Aktivitas Saat Ini</h4>
+                                <p class="text-gray-700">
+                                    Terus mengasah keterampilan pengodean, membiasakan diri dengan konsistensi belajar, dan aktif membangun proyek nyata seperti portofolio ini.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="cv-resume.pdf" download class="inline-flex items-center gap-3 bg-navy hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105 hover:shadow-xl animate-bounce-once" data-aos="zoom-in" data-aos-delay="1000">
+                        <i class="fas fa-download text-lg"></i> Unduh CV Lengkap
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="relative py-24 bg-gradient-to-br from-white to-slate-100 overflow-hidden z-10" data-aos="fade-up">
+        <div class="absolute top-0 left-0 w-72 h-72 bg-blue-700 opacity-10 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 z-0"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-yellow-500 opacity-20 rounded-full blur-[120px] translate-x-1/2 -translate-y-1/2 z-0"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-center text-gray-800 mb-8 tracking-tight leading-tight" data-aos="fade-down">
+                Keahlian <span class="text-yellow-500">Saya</span>
+            </h2>
+            <div class="w-24 h-1 bg-yellow-500 mx-auto mb-6 rounded-full" data-aos="zoom-in" data-aos-delay="200"></div>
+            <p class="text-center text-gray-600 text-lg max-w-2xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="300">
+                Berikut adalah <span class="font-semibold text-gray-800">tools</span> dan <span class="font-semibold text-gray-800">teknologi</span> yang saya gunakan untuk membangun pengalaman digital yang menarik dan fungsional.
+            </p>
+        </div>
+
+        <div class="swiper mySwiperSkills relative">
+            <div class="swiper-wrapper pb-8">
+                <div class="swiper-slide flex justify-center">
+                    <div class="skill-card-modern" data-aos="zoom-in" data-aos-delay="400">
+                        <i class="fab fa-html5 text-orange-500"></i>
+                        <span>HTML5</span>
+                    </div>
+                </div>
+                <div class="swiper-slide flex justify-center">
+                    <div class="skill-card-modern" data-aos="zoom-in" data-aos-delay="500">
+                        <i class="fab fa-css3-alt text-blue-500"></i>
+                        <span>CSS3</span>
+                    </div>
+                </div>
+                <div class="swiper-slide flex justify-center">
+                    <div class="skill-card-modern" data-aos="zoom-in" data-aos-delay="600">
+                        <i class="fab fa-js text-yellow-400"></i>
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+                <div class="swiper-slide flex justify-center">
+                    <div class="skill-card-modern" data-aos="zoom-in" data-aos-delay="700">
+                        <i class="fab fa-react text-blue-400"></i>
+                        <span>React</span>
+                    </div>
+                </div>
+                <div class="swiper-slide flex justify-center">
+                    <div class="skill-card-modern" data-aos="zoom-in" data-aos-delay="800">
+                        <i class="fab fa-node-js text-green-500"></i>
+                        <span>Node.js</span>
+                    </div>
+                </div>
+                <div class="swiper-slide flex justify-center">
+                    <div class="skill-card-modern" data-aos="zoom-in" data-aos-delay="900">
+                        <i class="fas fa-database text-blue-700"></i>
+                        <span>MySQL</span>
+                    </div>
+                </div>
+                <div class="swiper-slide flex justify-center">
+                    <div class="skill-card-modern" data-aos="zoom-in" data-aos-delay="1000">
+                        <i class="fab fa-laravel text-red-500"></i>
+                        <span>Laravel</span>
+                    </div>
+                </div>
+                <div class="swiper-slide flex justify-center">
+                    <div class="skill-card-modern" data-aos="zoom-in" data-aos-delay="1100">
+                        <i class="fab fa-git-alt text-orange-600"></i>
+                        <span>Git</span>
+                    </div>
+                </div>
+                <div class="swiper-slide flex justify-center">
+                    <div class="skill-card-modern" data-aos="zoom-in" data-aos-delay="1200">
+                        <i class="fab fa-github text-gray-800"></i>
+                        <span>GitHub</span>
+                    </div>
+                </div>
+                <div class="swiper-slide flex justify-center">
+                    <div class="skill-card-modern" data-aos="zoom-in" data-aos-delay="1300">
+                        <i class="fas fa-mobile-alt text-blue-500"></i>
+                        <span>Flutter</span>
+                    </div>
+                </div>
+                <div class="swiper-slide flex justify-center">
+                    <div class="skill-card-modern" data-aos="zoom-in" data-aos-delay="1400">
+                        <i class="fas fa-code text-blue-600"></i>
+                        <span>Dart</span>
+                    </div>
+                </div>
+                <div class="swiper-slide flex justify-center">
+                    <div class="skill-card-modern" data-aos="zoom-in" data-aos-delay="1500">
+                        <i class="fas fa-wind text-teal-400"></i>
+                        <span>Tailwind CSS</span>
+                    </div>
+                </div>
+                <div class="swiper-slide flex justify-center">
+                    <div class="skill-card-modern" data-aos="zoom-in" data-aos-delay="1600">
+                        <i class="fas fa-database text-gray-600"></i>
+                        <span>SQLite</span>
+                    </div>
+                </div>
+                <div class="swiper-slide flex justify-center">
+                    <div class="skill-card-modern" data-aos="zoom-in" data-aos-delay="1700">
+                        <i class="fab fa-php text-indigo-500"></i>
+                        <span>PHP</span>
+                    </div>
+                </div>
+                <div class="swiper-slide flex justify-center">
+                    <div class="skill-card-modern" data-aos="zoom-in" data-aos-delay="1800">
+                        <i class="fas fa-code-branch text-blue-700"></i>
+                        <span>jQuery</span>
+                    </div>
+                </div>
+                <div class="swiper-slide flex justify-center">
+                    <div class="skill-card-modern" data-aos="zoom-in" data-aos-delay="1900">
+                        <i class="fab fa-bootstrap text-purple-600"></i>
+                        <span>Bootstrap</span>
+                    </div>
+                </div>
+                <div class="swiper-slide flex justify-center">
+                    <div class="skill-card-modern" data-aos="zoom-in" data-aos-delay="2000">
+                        <i class="fas fa-bolt text-red-600"></i>
+                        <span>Livewire</span>
+                    </div>
+                </div>
+                <div class="swiper-slide flex justify-center">
+                    <div class="skill-card-modern" data-aos="zoom-in" data-aos-delay="2100">
+                        <i class="fas fa-box-open text-purple-700"></i>
+                        <span>Composer</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-center items-center gap-4 mt-6">
+                <div class="swiper-button-prev swiper-button-prev-skills"></div>
+                <span id="swiper-pagination-fraction-skills" class="text-lg font-semibold text-navy"></span>
+                <div class="swiper-button-next swiper-button-next-skills"></div>
+                
+            </div>          
+        </div>
+    </section>
+
+
+    
+
+    <section id="projects" class="py-16 bg-white" data-aos="fade-up">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+            <h2 class="text-3xl md:text-4xl font-extrabold text-center text-navy mb-6 tracking-tight leading-tight" data-aos="fade-down">
+
+                Proyek <span class="text-gold">Saya</span>
+
+            </h2>
+
+            <div class="w-24 h-1 bg-gold mx-auto mb-6 rounded-full" data-aos="zoom-in" data-aos-delay="200"></div>
+
+            <p class="text-center text-gray-600 text-lg max-w-2xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="300">
+
+                Berikut adalah beberapa <span class="font-semibold text-gray-800">proyek terbaru</span> yang mencerminkan keahlian, kreativitas, dan pengalaman saya dalam pengembangan aplikasi dan website.
+
+            </p>
+
+
+
+            <div class="swiper mySwiperProjects relative">
+
+                <div class="swiper-wrapper pb-8">
+
+                    <div class="swiper-slide flex justify-center" data-aos="fade-up" data-aos-delay="400">
+
+                        <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition transform hover:-translate-y-2 h-full flex flex-col">
+
+                            <div class="h-56 overflow-hidden">
+
+                                <img src="foto/project/kaswira-pos.webp" alt="Aplikasi KaswiraPOS" class="w-full h-full object-cover" loading="lazy">
+
+                            </div>
+
+                            <div class="p-6 flex flex-col flex-grow">
+
+                                <div class="flex justify-between items-start mb-2">
+
+                                    <h3 class="text-xl font-bold text-navy">Aplikasi KaswiraPOS</h3>
+
+                                    <span class="bg-gold text-navy text-xs font-semibold px-2 py-1 rounded">Fullstack</span>
+
+                                </div>
+
+                                <p class="text-gray-600 mb-4 flex-grow">
+
+                                    Aplikasi kasir berbasis web untuk UMKM, dengan fitur transaksi, manajemen stok, dan cetak struk PDF. Proyek ini selesai.
+
+                                </p>
+
+                                <div class="flex flex-wrap gap-2 mb-4">
+
+                                    <span class="bg-navy text-white text-xs px-2 py-1 rounded">Laravel (PHP)</span>
+
+                                    <span class="bg-navy text-white text-xs px-2 py-1 rounded">MySQL</span>
+
+                                    <span class="bg-navy text-white text-xs px-2 py-1 rounded">TailwindCSS</span>
+
+                                    <span class="bg-navy text-white text-xs px-2 py-1 rounded">CSS</span>
+
+                                </div>
+
+                                <div class="flex space-x-3 mt-auto">
+
+                                    <a href="https://kaswirapos.my.id" class="text-gold hover:text-yellow-600 flex items-center space-x-1">
+
+                                        <i class="fas fa-external-link-alt"></i> <span>Demo Langsung</span>
+
+                                    </a>
+
+                                    <a href="https://github.com/muhamadikhsandev/kaswira-pos" class="text-black hover:text-gray-800 flex items-center space-x-1">
+
+                                        <i class="fab fa-github"></i> <span>Kode</span>
+
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="swiper-slide flex justify-center" data-aos="fade-up" data-aos-delay="500">
+
+                        <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition transform hover:-translate-y-2 h-full flex flex-col">
+
+                            <div class="h-56 overflow-hidden">
+
+                                <img src="foto/project/tebak-kue.webp" alt="Proyek Tebak Kue" class="w-full h-full object-cover" loading="lazy">
+
+                            </div>
+
+                            <div class="p-6 flex flex-col flex-grow">
+
+                                <div class="flex justify-between items-start mb-2">
+
+                                    <h3 class="text-xl font-bold text-navy">Tebak Kue Interaktif</h3>
+
+                                    <span class="bg-gold text-navy text-xs font-semibold px-2 py-1 rounded">Frontend</span>
+
+                                </div>
+
+                                <p class="text-gray-600 mb-4 flex-grow">
+
+                                    Website interaktif untuk menebak kue favorit pengguna dengan animasi dan logika JavaScript. Proyek ini selesai.
+
+                                </p>
+
+                                <div class="flex flex-wrap gap-2 mb-4">
+
+                                    <span class="bg-navy text-white text-xs px-2 py-1 rounded">HTML</span>
+
+                                    <span class="bg-navy text-white text-xs px-2 py-1 rounded">CSS</span>
+
+                                    <span class="bg-navy text-white text-xs px-2 py-1 rounded">TailwindCSS</span>
+
+                                    <span class="bg-navy text-white text-xs px-2 py-1 rounded">JavaScript</span>
+
+                                </div>
+
+                                <div class="flex space-x-3 mt-auto">
+
+                                    <a href="https://tebak-kue.vercel.app/" class="text-gold hover:text-yellow-600 flex items-center space-x-1">
+
+                                        <i class="fas fa-external-link-alt"></i> <span>Demo Langsung</span>
+
+                                    </a>
+
+                                    <a href="https://github.com/muhamadikhsandev/tebak-kue" class="text-black hover:text-gray-800 flex items-center space-x-1">
+
+                                        <i class="fab fa-github"></i> <span>Kode</span>
+
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="swiper-slide flex justify-center" data-aos="fade-up" data-aos-delay="600">
+
+                        <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition transform hover:-translate-y-2 h-full flex flex-col">
+
+                            <div class="h-56 overflow-hidden">
+
+                                <img src="foto/project/financial-vault.webp" alt="Aplikasi Catatan Keuangan Harian" class="w-full h-full object-cover" loading="lazy">
+
+                            </div>
+
+                            <div class="p-6 flex flex-col flex-grow">
+
+                                <div class="flex justify-between items-start mb-2">
+
+                                    <h3 class="text-xl font-bold text-navy">Financial Vault -Keuangan</h3>
+
+                                    <span class="bg-gold text-navy text-xs font-semibold px-2 py-1 rounded">Fullstack</span>
+
+                                </div>
+
+                                <p class="text-gray-600 mb-4 flex-grow">
+
+                                    Aplikasi web untuk mencatat dan melacak keuangan pribadi, dibangun dengan React, Laravel (REST API), dan Tailwind CSS.
+
+                                </p>
+
+                                <div class="flex flex-wrap gap-2 mb-4">
+
+                                    <span class="bg-navy text-white text-xs px-2 py-1 rounded">React</span>
+
+                                    <span class="bg-navy text-white text-xs px-2 py-1 rounded">Laravel</span>
+
+                                    <span class="bg-navy text-white text-xs px-2 py-1 rounded">MySQL</span>
+
+                                    <span class="bg-navy text-white text-xs px-2 py-1 rounded">TailwindCSS</span>
+
+                                </div>
+
+                                <div class="flex space-x-3 mt-auto">
+
+                                    <a href="https://financial-vault.vercel.app/" class="text-gold hover:text-yellow-600 flex items-center space-x-1">
+
+                                        <i class="fas fa-external-link-alt"></i> <span>Demo Langsung</span>
+
+                                    </a>
+
+                                    <a href="https://github.com/muhamadikhsandev/financial-vault" class="text-black hover:text-gray-800 flex items-center space-x-1">
+
+                                        <i class="fab fa-github"></i> <span>Kode</span>
+
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="swiper-slide flex justify-center" data-aos="fade-up" data-aos-delay="700">
+
+                        <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition transform hover:-translate-y-2 h-full flex flex-col">
+
+                            <div class="h-56 overflow-hidden">
+
+                                <img src="foto/project/gym-membara.webp" alt="Gym Membara" class="w-full h-full object-cover" loading="lazy">
+
+                            </div>
+
+                            <div class="p-6 flex flex-col flex-grow">
+
+                                <div class="flex justify-between items-start mb-2">
+
+                                    <h3 class="text-xl font-bold text-navy">Gym Membara Frontend</h3>
+
+                                    <span class="bg-gold text-navy text-xs font-semibold px-2 py-1 rounded">Frontend</span>
+
+                                </div>
+
+                                <p class="text-gray-600 mb-4 flex-grow">
+
+                                    Landing page modern untuk gym, dengan desain responsif, efek interaktif, dan animasi kustom. Proyek ini selesai.
+
+                                </p>
+
+                                <div class="flex flex-wrap gap-2 mb-4">
+
+                                    <span class="bg-navy text-white text-xs px-2 py-1 rounded">HTML</span>
+
+                                    <span class="bg-navy text-white text-xs px-2 py-1 rounded">TailwindCSS</span>
+
+                                    <span class="bg-navy text-white text-xs px-2 py-1 rounded">JavaScript</span>
+
+                                    <span class="bg-navy text-white text-xs px-2 py-1 rounded">CSS</span>
+
+                                </div>
+
+                                <div class="flex space-x-3 mt-auto">
+
+                                    <a href="https://gym-membara.vercel.app/" class="text-gold hover:text-yellow-600 flex items-center space-x-1">
+
+                                        <i class="fas fa-external-link-alt"></i> <span>Demo Langsung</span>
+
+                                    </a>
+
+                                    <a href="https://github.com/muhamadikhsandev/gym-membara" class="text-black hover:text-gray-800 flex items-center space-x-1">
+
+                                        <i class="fab fa-github"></i> <span>Kode</span>
+
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="swiper-slide flex justify-center" data-aos="fade-up" data-aos-delay="800">
+
+                        <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition transform hover:-translate-y-2 h-full flex flex-col">
+
+                            <div class="h-56 overflow-hidden">
+
+                                <img src="foto/project/nexus-top.webp" alt="NexusTopUp" class="w-full h-full object-cover" loading="lazy">
+
+                            </div>
+
+                            <div class="p-6 flex flex-col flex-grow">
+
+                                <div class="flex justify-between items-start mb-2">
+
+                                    <h3 class="text-xl font-bold text-navy">NexusTopUp Frontend</h3>
+
+                                    <span class="bg-gold text-navy text-xs font-semibold px-2 py-1 rounded">Frontend</span>
+
+                                </div>
+
+                                <p class="text-gray-600 mb-4 flex-grow">
+
+                                    Landing page modern untuk top-up game dan digital, dengan tampilan profesional dan animasi interaktif. Proyek ini selesai.
+
+                                </p>
+
+                                <div class="flex flex-wrap gap-2 mb-4">
+
+                                    <span class="bg-navy text-white text-xs px-2 py-1 rounded">HTML</span>
+
+                                    <span class="bg-navy text-white text-xs px-2 py-1 rounded">Tailwind CSS</span>
+
+                                    <span class="bg-navy text-white text-xs px-2 py-1 rounded">JavaScript</span>
+
+                                    <span class="bg-navy text-white text-xs px-2 py-1 rounded">CSS</span>
+
+                                </div>
+
+                                <div class="flex space-x-3 mt-auto">
+
+                                    <a href="https://nexustopup.vercel.app/" class="text-gold hover:text-yellow-600 flex items-center space-x-1">
+
+                                        <i class="fas fa-external-link-alt"></i> <span>Demo Langsung</span>
+
+                                    </a>
+
+                                    <a href="https://github.com/muhamadikhsandev/nexustopup" class="text-black hover:text-gray-800 flex items-center space-x-1">
+
+                                        <i class="fab fa-github"></i> <span>Kode</span>
+
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="swiper-slide flex justify-center" data-aos="fade-up" data-aos-delay="1200">
+
+                        <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition transform hover:-translate-y-2 h-full flex flex-col">
+
+                            <div class="h-56 overflow-hidden">
+
+                                <img src="foto/project/kasir-cinta.webp" alt="Aplikasi Kasir Cinta Moment Mobile" class="w-full h-full object-cover" loading="lazy">
+
+                            </div>
+
+                            <div class="p-6 flex flex-col flex-grow">
+
+                                <div class="flex justify-between items-start mb-2">
+
+                                    <h3 class="text-xl font-bold text-navy">Kasir Cinta – Moment Mobile</h3>
+
+                                    <span class="bg-gold text-navy text-xs font-semibold px-2 py-1 rounded">Mobile</span>
+
+                                </div>
+
+                                <p class="text-gray-600 mb-4 flex-grow">
+
+                                    Aplikasi kasir mobile bertema cinta untuk menyimpan momen berkesan. Mendukung mode offline. Proyek ini selesai.
+
+                                </p>
+
+                                <div class="flex flex-wrap gap-2 mb-4">
+
+                                    <span class="bg-navy text-white text-xs px-2 py-1 rounded">Flutter</span>
+
+                                    <span class="bg-navy text-white text-xs px-2 py-1 rounded">Dart</span>
+
+                                    <span class="bg-navy text-white text-xs px-2 py-1 rounded">SQLite</span>
+
+                                    <span class="bg-navy text-white text-xs px-2 py-1 rounded">Offline Support</span>
+
+                                </div>
+
+                                <div class="flex space-x-3 mt-auto">
+
+                                    <a href="https://kasir-cinta.vercel.app/" class="text-gold hover:text-yellow-600 flex items-center space-x-1">
+
+                                        <i class="fas fa-external-link-alt"></i> <span>Demo Langsung</span>
+
+                                    </a>
+
+                                    <a href="https://github.com/muhamadikhsandev/kasir-cinta" class="text-black hover:text-gray-800 flex items-center space-x-1">
+
+                                        <i class="fab fa-github"></i> <span>Kode</span>
+
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+                <div class="flex justify-center items-center gap-4 mt-6">
+
+                    <div class="swiper-button-prev swiper-button-prev-projects"></div>
+
+                    <span id="swiper-pagination-fraction-projects" class="text-lg font-semibold text-navy"></span>
+
+                    <div class="swiper-button-next swiper-button-next-projects"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="certificates" class="py-16 bg-white" data-aos="fade-up">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-center text-navy mb-6 tracking-tight leading-tight" data-aos="fade-down">
+                Sertifikat <span class="text-gold">Saya</span>
+            </h2>
+            <div class="w-24 h-1 bg-gold mx-auto mb-6 rounded-full" data-aos="zoom-in" data-aos-delay="200"></div>
+            <p class="text-center text-gray-600 text-lg max-w-2xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="300">
+                Berikut adalah <span class="font-semibold text-gray-800">sertifikasi resmi</span> yang memvalidasi keahlian dan pengetahuan saya dalam pengembangan web, aplikasi, dan teknologi digital lainnya.
+            </p>
+
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" data-aos="fade-up" data-aos-delay="400">
+                        <div class="certificate-card bg-white rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-2 relative overflow-hidden group">
+                            <img src="foto/certificate/frontend-development-html.webp" alt="Sertifikat Dasar HTML untuk Frontend" class="w-full object-cover mb-3 rounded-t-md" loading="lazy">
+                            <div class="p-4 sm:p-6">
+                                <h3 class="text-lg sm:text-xl font-bold text-navy mb-1">Frontend Development HTML</h3>
+                                <p class="text-gray-600 text-sm mb-2">Great Learning Academy</p>
+                                <p class="text-gray-500 text-xs mb-3">November 2024</p>
+                                <button onclick="showCertificate('Dasar HTML untuk Frontend', 'foto/certificate/frontend-development-html.webp')" class="text-gold hover:text-yellow-600 font-medium inline-flex items-center text-sm">
+                                    Lihat Sertifikat <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                                </button>
+                            </div>
+                            <div class="certificate-badge bg-navy text-gold">
+                                <i class="fas fa-award" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide" data-aos="fade-up" data-aos-delay="500">
+                        <div class="certificate-card bg-white rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-2 relative overflow-hidden group">
+                            <img src="foto/certificate/frontend-development-css.webp" alt="Sertifikat Pengembangan Frontend dengan CSS" class="w-full object-cover mb-3 rounded-t-md" loading="lazy">
+                            <div class="p-4 sm:p-6">
+                                <h3 class="text-lg sm:text-xl font-bold text-navy mb-1">Frontend Development CSS</h3>
+                                <p class="text-gray-600 text-sm mb-2">Great Learning Academy</p>
+                                <p class="text-gray-500 text-xs mb-3">November 2024</p>
+                                <button onclick="showCertificate('Pengembangan Frontend dengan CSS', 'foto/certificate/frontend-development-css.webp')" class="text-gold hover:text-yellow-600 font-medium inline-flex items-center text-sm">
+                                    Lihat Sertifikat <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                                </button>
+                            </div>
+                            <div class="certificate-badge bg-navy text-gold">
+                                <i class="fas fa-award" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide" data-aos="fade-up" data-aos-delay="600">
+                        <div class="certificate-card bg-white rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-2 relative overflow-hidden group">
+                            <img src="foto/certificate/css-tutorial.webp" alt="Sertifikat CSS Lanjutan" class="w-full object-cover mb-3 rounded-t-md" loading="lazy">
+                            <div class="p-4 sm:p-6">
+                                <h3 class="text-lg sm:text-xl font-bold text-navy mb-1">CSS Tutorial</h3>
+                                <p class="text-gray-600 text-sm mb-2">Great Learning Academy</p>
+                                <p class="text-gray-500 text-xs mb-3">November 2024</p>
+                                <button onclick="showCertificate('CSS Lanjutan', 'foto/certificate/css-tutorial.webp')" class="text-gold hover:text-yellow-600 font-medium inline-flex items-center text-sm">
+                                    Lihat Sertifikat <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                                </button>
+                            </div>
+                            <div class="certificate-badge bg-navy text-gold">
+                                <i class="fas fa-award" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide" data-aos="fade-up" data-aos-delay="700">
+                        <div class="certificate-card bg-white rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-2 relative overflow-hidden group">
+                            <img src="foto/certificate/html-attributes-and-tags.webp" alt="Sertifikat Atribut HTML & Semantik" class="w-full object-cover mb-3 rounded-t-md" loading="lazy">
+                            <div class="p-4 sm:p-6">
+                                <h3 class="text-lg sm:text-xl font-bold text-navy mb-1">HTML Atrtributes and Tags</h3>
+                                <p class="text-gray-600 text-sm mb-2">Great Learning Academy</p>
+                                <p class="text-gray-500 text-xs mb-3">November 2024</p>
+                                <button onclick="showCertificate('Atribut HTML & Semantik', 'foto/certificate/html-attributes-and-tags.webp')" class="text-gold hover:text-yellow-600 font-medium inline-flex items-center text-sm">
+                                    Lihat Sertifikat <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                                </button>
+                            </div>
+                            <div class="certificate-badge bg-navy text-gold">
+                                <i class="fas fa-award" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide" data-aos="fade-up" data-aos-delay="800">
+                        <div class="certificate-card bg-white rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-2 relative overflow-hidden group">
+                            <img src="foto/certificate/ui-ux-for-beginners.webp" alt="Sertifikat Pengantar UI/UX Design" class="w-full object-cover mb-3 rounded-t-md" loading="lazy">
+                            <div class="p-4 sm:p-6">
+                                <h3 class="text-lg sm:text-xl font-bold text-navy mb-1">UI / UX For Beginners</h3>
+                                <p class="text-gray-600 text-sm mb-2">Great Learning Academy</p>
+                                <p class="text-gray-500 text-xs mb-3">November 2024</p>
+                                <button onclick="showCertificate('Pengantar UI/UX Design', 'foto/certificate/ui-ux-for-beginners.webp')" class="text-gold hover:text-yellow-600 font-medium inline-flex items-center text-sm">
+                                    Lihat Sertifikat <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                                </button>
+                            </div>
+                            <div class="certificate-badge bg-navy text-gold">
+                                <i class="fas fa-award" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide" data-aos="fade-up" data-aos-delay="900">
+                        <div class="certificate-card bg-white rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-2 relative overflow-hidden group">
+                            <img src="foto/certificate/jquery-tutorial.webp" alt="Sertifikat Penggunaan JQuery" class="w-full object-cover mb-3 rounded-t-md" loading="lazy">
+                            <div class="p-4 sm:p-6">
+                                <h3 class="text-lg sm:text-xl font-bold text-navy mb-1">JQuery Tutorial</h3>
+                                <p class="text-gray-600 text-sm mb-2">Great Learning Academy</p>
+                                <p class="text-gray-500 text-xs mb-3">November 2024</p>
+                                <button onclick="showCertificate('Penggunaan JQuery', 'foto/certificate/jquery-tutorial.webp')" class="text-gold hover:text-yellow-600 font-medium inline-flex items-center text-sm">
+                                    Lihat Sertifikat <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                                </button>
+                            </div>
+                            <div class="certificate-badge bg-navy text-gold">
+                                <i class="fas fa-award" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide" data-aos="fade-up" data-aos-delay="1000">
+                        <div class="certificate-card bg-white rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-2 relative overflow-hidden group">
+                            <img src="foto/certificate/design-app.webp" alt="Sertifikat Desain Aplikasi Mobile" class="w-full object-cover mb-3 rounded-t-md" loading="lazy">
+                            <div class="p-4 sm:p-6">
+                                <h3 class="text-lg sm:text-xl font-bold text-navy mb-1">Design App</h3>
+                                <p class="text-gray-600 text-sm mb-2">Great Learning Academy</p>
+                                <p class="text-gray-500 text-xs mb-3">November 2024</p>
+                                <button onclick="showCertificate('Desain Aplikasi Mobile', 'foto/certificate/design-app.webp')" class="text-gold hover:text-yellow-600 font-medium inline-flex items-center text-sm">
+                                    Lihat Sertifikat <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                                </button>
+                            </div>
+                            <div class="certificate-badge bg-navy text-gold">
+                                <i class="fas fa-award" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide" data-aos="fade-up" data-aos-delay="1100">
+                        <div class="certificate-card bg-white rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-2 relative overflow-hidden group">
+                            <img src="foto/certificate/pengenalan-logika-pemrograman.webp" alt="Sertifikat Pengenalan Logika Pemrograman" class="w-full object-cover mb-3 rounded-t-md" loading="lazy">
+                            <div class="p-4 sm:p-6">
+                                <h3 class="text-lg sm:text-xl font-bold text-navy mb-1">Pengenalan Logika Pemrograman</h3>
+                                <p class="text-gray-600 text-sm mb-2">Dicoding</p>
+                                <p class="text-gray-500 text-xs mb-3">September 2023</p>
+                                <button onclick="showCertificate('Pengenalan Logika Pemrograman', 'foto/certificate/pengenalan-logika-pemrograman.webp')" class="text-gold hover:text-yellow-600 font-medium inline-flex items-center text-sm">
+                                    Lihat Sertifikat <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                                </button>
+                            </div>
+                            <div class="certificate-badge bg-navy text-gold">
+                                <i class="fas fa-award" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide" data-aos="fade-up" data-aos-delay="1200">
+                        <div class="certificate-card bg-white rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-2 relative overflow-hidden group">
+                            <img src="foto/certificate/seminar-literasi-digital.webp" alt="Sertifikat Seminar Literasi Digital" class="w-full object-cover mb-3 rounded-t-md" loading="lazy">
+                            <div class="p-4 sm:p-6">
+                                <h3 class="text-lg sm:text-xl font-bold text-navy mb-1">Seminar Literasi Digital</h3>
+                                <p class="text-gray-600 text-sm mb-2">Kominfo</p>
+                                <p class="text-gray-500 text-xs mb-3">Februari 2024</p>
+                                <button onclick="showCertificate('Seminar Literasi Digital', 'foto/certificate/seminar-literasi-digital.webp')" class="text-gold hover:text-yellow-600 font-medium inline-flex items-center text-sm">
+                                    Lihat Sertifikat <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                                </button>
+                            </div>
+                            <div class="certificate-badge bg-navy text-gold">
+                                <i class="fas fa-award" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide" data-aos="fade-up" data-aos-delay="1300">
+                        <div class="certificate-card bg-white rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-2 relative overflow-hidden group">
+                            <img src="foto/certificate/introduction-dart-and-flutter.webp" alt="Sertifikat Introduction Dart and Flutter" class="w-full object-cover mb-3 rounded-t-md" loading="lazy">
+                            <div class="p-4 sm:p-6">
+                                <h3 class="text-lg sm:text-xl font-bold text-navy mb-1">Introduction Dart and Flutter</h3>
+                                <p class="text-gray-600 text-sm mb-2">MySkill</p>
+                                <p class="text-gray-500 text-xs mb-3">Juni 2025</p>
+                                <button onclick="showCertificate('Introduction Dart and Flutter', 'foto/certificate/introduction-dart-and-flutter.webp')" class="text-gold hover:text-yellow-600 font-medium inline-flex items-center text-sm">
+                                    Lihat Sertifikat <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                                </button>
+                            </div>
+                            <div class="certificate-badge bg-navy text-gold">
+                                <i class="fas fa-award" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide" data-aos="fade-up" data-aos-delay="1400">
+                        <div class="certificate-card bg-white rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-2 relative overflow-hidden group">
+                            <img src="foto/certificate/internet-introduction.webp" alt="Sertifikat Internet Introduction" class="w-full object-cover mb-3 rounded-t-md" loading="lazy">
+                            <div class="p-4 sm:p-6">
+                                <h3 class="text-lg sm:text-xl font-bold text-navy mb-1">Internet Introduction</h3>
+                                <p class="text-gray-600 text-sm mb-2">MySkill</p>
+                                <p class="text-gray-500 text-xs mb-3">Juni 2025</p>
+                                <button onclick="showCertificate('Internet Introduction', 'foto/certificate/internet-introduction.webp')" class="text-gold hover:text-yellow-600 font-medium inline-flex items-center text-sm">
+                                    Lihat Sertifikat <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                                </button>
+                            </div>
+                            <div class="certificate-badge bg-navy text-gold">
+                                <i class="fas fa-award" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide" data-aos="fade-up" data-aos-delay="1500">
+                        <div class="certificate-card bg-white rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-2 relative overflow-hidden group">
+                            <img src="foto/certificate/basic-command-git-and-github.webp" alt="Sertifikat Basic Command Git and Github" class="w-full object-cover mb-3 rounded-t-md" loading="lazy">
+                            <div class="p-4 sm:p-6">
+                                <h3 class="text-lg sm:text-xl font-bold text-navy mb-1">Basic Command Git and Github</h3>
+                                <p class="text-gray-600 text-sm mb-2">MySkill</p>
+                                <p class="text-gray-500 text-xs mb-3">Juni 2025</p>
+                                <button onclick="showCertificate('Basic Command Git and Github', 'foto/certificate/basic-command-git-and-github.webp')" class="text-gold hover:text-yellow-600 font-medium inline-flex items-center text-sm">
+                                    Lihat Sertifikat <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                                </button>
+                            </div>
+                            <div class="certificate-badge bg-navy text-gold">
+                                <i class="fas fa-award" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide" data-aos="fade-up" data-aos-delay="1600">
+                        <div class="certificate-card bg-white rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-2 relative overflow-hidden group">
+                            <img src="foto/certificate/website-development-works.webp" alt="Sertifikat Website Development Works" class="w-full object-cover mb-3 rounded-t-md" loading="lazy">
+                            <div class="p-4 sm:p-6">
+                                <h3 class="text-lg sm:text-xl font-bold text-navy mb-1">Website Development Works</h3>
+                                <p class="text-gray-600 text-sm mb-2">MySkill</p>
+                                <p class="text-gray-500 text-xs mb-3">Juni 2025</p>
+                                <button onclick="showCertificate('Website Development Works', 'foto/certificate/website-development-works.webp')" class="text-gold hover:text-yellow-600 font-medium inline-flex items-center text-sm">
+                                    Lihat Sertifikat <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                                </button>
+                            </div>
+                            <div class="certificate-badge bg-navy text-gold">
+                                <i class="fas fa-award" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide" data-aos="fade-up" data-aos-delay="1700">
+                        <div class="certificate-card bg-white rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-2 relative overflow-hidden group">
+                            <img src="foto/certificate/responsive-website-design.webp" alt="Sertifikat Responsive Website Design" class="w-full object-cover mb-3 rounded-t-md" loading="lazy">
+                            <div class="p-4 sm:p-6">
+                                <h3 class="text-lg sm:text-xl font-bold text-navy mb-1">Responsive Website Design</h3>
+                                <p class="text-gray-600 text-sm mb-2">MySKill</p>
+                                <p class="text-gray-500 text-xs mb-3">Juni 2025</p>
+                                <button onclick="showCertificate('Responsive Website Design', 'foto/certificate/responsive-website-design.webp')" class="text-gold hover:text-yellow-600 font-medium inline-flex items-center text-sm">
+                                    Lihat Sertifikat <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                                </button>
+                            </div>
+                            <div class="certificate-badge bg-navy text-gold">
+                                <i class="fas fa-award" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide" data-aos="fade-up" data-aos-delay="1800">
+                        <div class="certificate-card bg-white rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-2 relative overflow-hidden group">
+                            <img src="foto/certificate/api-introduction.webp" alt="Sertifikat Api Introduction" class="w-full object-cover mb-3 rounded-t-md" loading="lazy">
+                            <div class="p-4 sm:p-6">
+                                <h3 class="text-lg sm:text-xl font-bold text-navy mb-1">Api Introduction</h3>
+                                <p class="text-gray-600 text-sm mb-2">MySkill</p>
+                                <p class="text-gray-500 text-xs mb-3">Juni 2025</p>
+                                <button onclick="showCertificate('Api Introduction', 'foto/certificate/api-introduction.webp')" class="text-gold hover:text-yellow-600 font-medium inline-flex items-center text-sm">
+                                    Lihat Sertifikat <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                                </button>
+                            </div>
+                            <div class="certificate-badge bg-navy text-gold">
+                                <i class="fas fa-award" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide" data-aos="fade-up" data-aos-delay="1900">
+                        <div class="certificate-card bg-white rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-2 relative overflow-hidden group">
+                            <img src="foto/certificate/frontend-introduction.webp" alt="Sertifikat Frontend Introduction" class="w-full object-cover mb-3 rounded-t-md" loading="lazy">
+                            <div class="p-4 sm:p-6">
+                                <h3 class="text-lg sm:text-xl font-bold text-navy mb-1">Frontend Introduction</h3>
+                                <p class="text-gray-600 text-sm mb-2">MySkill</p>
+                                <p class="text-gray-500 text-xs mb-3">Juni 2025</p>
+                                <button onclick="showCertificate('Frontend Introduction', 'foto/certificate/frontend-introduction.webp')" class="text-gold hover:text-yellow-600 font-medium inline-flex items-center text-sm">
+                                    Lihat Sertifikat <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                                </button>
+                            </div>
+                            <div class="certificate-badge bg-navy text-gold">
+                                <i class="fas fa-award" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide" data-aos="fade-up" data-aos-delay="2000">
+                        <div class="certificate-card bg-white rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-2 relative overflow-hidden group">
+                            <img src="foto/certificate/backend-introduction.webp" alt="Sertifikat Backend Introduction" class="w-full object-cover mb-3 rounded-t-md" loading="lazy">
+                            <div class="p-4 sm:p-6">
+                                <h3 class="text-lg sm:text-xl font-bold text-navy mb-1">Backend Introduction</h3>
+                                <p class="text-gray-600 text-sm mb-2">MySkill</p>
+                                <p class="text-gray-500 text-xs mb-3">Juni 2025</p>
+                                <button onclick="showCertificate('Backend Introduction', 'foto/certificate/backend-introduction.webp')" class="text-gold hover:text-yellow-600 font-medium inline-flex items-center text-sm">
+                                    Lihat Sertifikat <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                                </button>
+                            </div>
+                            <div class="certificate-badge bg-navy text-gold">
+                                <i class="fas fa-award" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide" data-aos="fade-up" data-aos-delay="2100">
+                        <div class="certificate-card bg-white rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-2 relative overflow-hidden group">
+                            <img src="foto/certificate/introduction-react.webp" alt="Sertifikat Introduction React" class="w-full object-cover mb-3 rounded-t-md" loading="lazy">
+                            <div class="p-4 sm:p-6">
+                                <h3 class="text-lg sm:text-xl font-bold text-navy mb-1">Introduction React</h3>
+                                <p class="text-gray-600 text-sm mb-2">MySkill</p>
+                                <p class="text-gray-500 text-xs mb-3">Juni 2025</p>
+                                <button onclick="showCertificate('Introduction React', 'foto/certificate/introduction-react.webp')" class="text-gold hover:text-yellow-600 font-medium inline-flex items-center text-sm">
+                                    Lihat Sertifikat <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                                </button>
+                            </div>
+                            <div class="certificate-badge bg-navy text-gold">
+                                <i class="fas fa-award" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide" data-aos="fade-up" data-aos-delay="2200">
+                        <div class="certificate-card bg-white rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-2 relative overflow-hidden group">
+                            <img src="foto/certificate/computer-basics.webp" alt="Sertifikat Computer Basics" class="w-full object-cover mb-3 rounded-t-md" loading="lazy">
+                            <div class="p-4 sm:p-6">
+                                <h3 class="text-lg sm:text-xl font-bold text-navy mb-1">Computer Basics</h3>
+                                <p class="text-gray-600 text-sm mb-2">Myskill</p>
+                                <p class="text-gray-500 text-xs mb-3">Juni 2025</p>
+                                <button onclick="showCertificate('Computer Basics', 'foto/certificate/computer-basics.webp')" class="text-gold hover:text-yellow-600 font-medium inline-flex items-center text-sm">
+                                    Lihat Sertifikat <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                                </button>
+                            </div>
+                            <div class="certificate-badge bg-navy text-gold">
+                                <i class="fas fa-award" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide" data-aos="fade-up" data-aos-delay="2300">
+                        <div class="certificate-card bg-white rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-2 relative overflow-hidden group">
+                            <img src="foto/certificate/basic-computer-skills.webp" alt="Sertifikat Basic Computer Skills" class="w-full object-cover mb-3 rounded-t-md" loading="lazy">
+                            <div class="p-4 sm:p-6">
+                                <h3 class="text-lg sm:text-xl font-bold text-navy mb-1">Basic Comuputer Skills</h3>
+                                <p class="text-gray-600 text-sm mb-2">MySkill</p>
+                                <p class="text-gray-500 text-xs mb-3">Juni 2025</p>
+                                <button onclick="showCertificate('Basic Comuputer Skills', 'foto/certificate/basic-computer-skills.webp')" class="text-gold hover:text-yellow-600 font-medium inline-flex items-center text-sm">
+                                    Lihat Sertifikat <i class="fas fa-external-link-alt ml-1 text-xs"></i>
+                                </button>
+                            </div>
+                            <div class="certificate-badge bg-navy text-gold">
+                                <i class="fas fa-award" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-center items-center gap-4 mt-6">
+                    <div class="swiper-button-prev"></div>
+                    <span id="swiper-pagination-fraction" class="text-lg font-semibold text-navy"></span>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HUBUNGI SAYA -->
+    <section id="contact" class="relative py-24 bg-gray-50 text-darkgray overflow-hidden" data-aos="fade-up">
+        <!-- Decorative Background Blur -->
+        <div class="absolute -top-32 -left-32 w-96 h-96 bg-gold opacity-20 rounded-full filter blur-3xl z-0"></div>
+        <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-navy opacity-10 rounded-full filter blur-3xl z-0"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-center text-navy mb-6 tracking-tight leading-tight" data-aos="fade-down">
+                Hubungi <span class="text-gold">Saya</span>
+            </h2>
+            <div class="w-24 h-1 bg-gold mx-auto mb-6 rounded-full" data-aos="zoom-in" data-aos-delay="200"></div>
+            <p class="text-center text-gray-600 text-lg max-w-2xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="300">
+                Tertarik bekerja sama, tanya-tanya, atau sekadar ngobrol santai?
+                <span class="font-semibold text-gray-800">Silakan hubungi saya melalui form atau kontak di bawah ini</span>.
+            </p>
+
+            <div class="flex flex-col lg:flex-row gap-12">
+                <!-- Informasi Kontak -->
+                <div class="lg:w-1/2 space-y-10" data-aos="fade-right" data-aos-delay="400">
+                    <h3 class="text-2xl font-semibold mb-6 text-gold">Informasi Kontak</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-gold p-3 rounded-full mr-4 text-navy shadow-lg">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-navy">Lokasi</h4>
+                                <p class="text-gray-600">Bogor, Jawa Barat, Indonesia</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-gold p-3 rounded-full mr-4 text-navy shadow-lg">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-navy">Email</h4>
+                                <p class="text-gray-600">muhamadikhsan.dev@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-gold p-3 rounded-full mr-4 text-navy shadow-lg">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-navy">Telepon</h4>
+                                <p class="text-gray-600">+62 898-9379-116</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sosial Media -->
+                    <div data-aos="fade-right" data-aos-delay="500">
+                        <h3 class="text-2xl font-semibold mb-6 text-gold">Ikuti Saya</h3>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/muhamadikhsandev" target="_blank"
+                                class="group relative w-12 h-12 rounded-full bg-navy text-white flex items-center justify-center shadow-md hover:shadow-xl transition hover:scale-110">
+                                <i class="fab fa-github"></i>
+                                <span class="absolute bottom-full mb-2 text-xs bg-darkgray text-white px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">GitHub</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/muhamadikhsandev/" target="_blank"
+                                class="group relative w-12 h-12 rounded-full bg-navy text-white flex items-center justify-center shadow-md hover:shadow-xl transition hover:scale-110">
+                                <i class="fab fa-linkedin-in"></i>
+                                <span class="absolute bottom-full mb-2 text-xs bg-darkgray text-white px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">LinkedIn</span>
+                            </a>
+                         
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulir Kontak -->
+                <div class="lg:w-1/2" data-aos="fade-left" data-aos-delay="400">
+                    <div class="bg-white/70 backdrop-blur-lg p-8 rounded-2xl shadow-2xl border border-gray-200">
+                        <form id="contactForm" action="https://formsubmit.co/muhamadikhsan.dev@gmail.com" method="POST" class="space-y-6">
+                            <!-- Hidden Inputs -->
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_subject" value="Pesan Baru dari Website Portfolio">
+                            <input type="hidden" name="_template" value="box">
+                            <input type="hidden" name="_next" value="https://yourdomain.com/thanks.html">
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="block mb-2 font-medium text-darkgray">Nama Anda</label>
+                                    <input type="text" id="name" name="name" required
+                                        class="w-full px-4 py-3 rounded-xl bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gold text-darkgray"
+                                        placeholder="Contoh: John Doe">
+                                </div>
+                                <div>
+                                    <label for="email" class="block mb-2 font-medium text-darkgray">Email Anda</label>
+                                    <input type="email" id="email" name="email" required
+                                        class="w-full px-4 py-3 rounded-xl bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gold text-darkgray"
+                                        placeholder="contoh@email.com">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="message" class="block mb-2 font-medium text-darkgray">Pesan</label>
+                                <textarea id="message" name="message" rows="5" required
+                                    class="w-full px-4 py-3 rounded-xl bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gold text-darkgray"
+                                    placeholder="Tulis pesanmu di sini..."></textarea>
+                            </div>
+
+                            <button type="submit"
+                                class="w-full bg-gold hover:bg-yellow-500 text-navy font-bold py-3 px-6 rounded-xl transition duration-300 transform hover:scale-105 hover:shadow-lg">
+                                Kirim Pesan <i class="fas fa-paper-plane ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-navy text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <a href="#" class="text-xl font-bold flex items-center">
+                        <span class="text-gold mr-1"><i class="fas fa-code"></i></span>
+                        <span>Muhamad Ikhsan</span>
+                    </a>
+                    <p class="text-gray-400 mt-2">Pengembang Fullstack Junior</p>
+                </div>
+
+                <div class="flex flex-col items-center md:items-end">
+                    <div class="flex space-x-4 mb-4">
+                        <a href="https://github.com/muhamadikhsandev" class="text-gray-400 hover:text-gold transition">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/muhamadikhsandev/" class="text-gray-400 hover:text-gold transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        &copy; 2025 Muhamad Ikhsan .Semua hak dilindungi.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#home" id="back-to-top" class="fixed bottom-8 right-8 bg-gold text-navy w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition opacity-0 invisible hover:bg-yellow-600 z-50">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
